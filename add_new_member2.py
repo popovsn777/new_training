@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
 import  unittest
+from member import Member
 
 def is_alert_present(wd):
     try:
@@ -19,7 +20,7 @@ class add_new_member2(unittest.TestCase):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, name="admin", password="secret")
-        self.add_new_user(wd, firstname="Serg", lastname="Zat", address="Tula", year="1567")
+        self.add_new_user(wd, Member(firstname="Sergey", lastname="Zatula", address="Tula",year = 1788))
         self.return_to_home_page(wd)
         self.logout(wd)
 
@@ -27,7 +28,7 @@ class add_new_member2(unittest.TestCase):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, name="admin", password="secret")
-        self.add_new_user(wd, firstname="Igo", lastname="Lub", address="S.Peter", year="1111")
+        self.add_new_user(wd, Member(firstname="Igo", lastname="Lub", address="S.Peter", year="1111"))
         self.return_to_home_page(wd)
         self.logout(wd)
 
@@ -35,7 +36,7 @@ class add_new_member2(unittest.TestCase):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, name="admin", password="secret")
-        self.add_new_user(wd, firstname="Ludmila", lastname="Yakish", address="Kolomna", year="2000")
+        self.add_new_user(wd, Member(firstname="Ludmila", lastname="Yakish", address="Kolomna", year="2000"))
         self.return_to_home_page(wd)
         self.logout(wd)
 
@@ -50,17 +51,17 @@ class add_new_member2(unittest.TestCase):
         # return to home page
         wd.find_element_by_link_text("home page").click()
 
-    def add_new_user(self, wd, firstname, lastname, address, year):
+    def add_new_user(self, wd, member):
         # add new user
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(firstname)
+        wd.find_element_by_name("firstname").send_keys(member.firstname)
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(lastname)
+        wd.find_element_by_name("lastname").send_keys(member.lastname)
         wd.find_element_by_name("address").click()
         wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys(address)
+        wd.find_element_by_name("address").send_keys(member.address)
         if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[5]").is_selected():
             wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[5]").click()
         if not wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[6]").is_selected():
@@ -68,7 +69,7 @@ class add_new_member2(unittest.TestCase):
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()
-        wd.find_element_by_name("byear").send_keys(year)
+        wd.find_element_by_name("byear").send_keys(member.year)
         wd.find_element_by_name("theform").click()
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
