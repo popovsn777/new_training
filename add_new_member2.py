@@ -10,6 +10,7 @@ def is_alert_present(wd):
         return False
 
 class add_new_member2(unittest.TestCase):
+    
     def setUp(self):
         self.wd = WebDriver()
         self.wd.implicitly_wait(60)
@@ -17,7 +18,6 @@ class add_new_member2(unittest.TestCase):
     def test_add_new_member2(self):
         wd = self.wd
         self.open_home_page(wd)
-        #login
         self.login(wd, name="admin", password="secret")
         self.add_new_user(wd, firstname="Serg", lastname="Zat", address="Tula", year="1567")
         self.return_to_home_page(wd)
