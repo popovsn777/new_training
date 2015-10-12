@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import pytest
-from model.group import Group
+from model.member import Member
 from fixture.application import Application
 
 @pytest.fixture
@@ -14,9 +14,7 @@ def app(request):
     
 def test_add_new_member2(app):
     app.session.login( username="admin", password="secret")
-
-
-    self.add_new_user(wd, Member(firstname="Sergey", lastname="Zatula", address="Tula",year = 1788))
+    app.add_new_user(wd, Member(firstname="Sergey", lastname="Zatula", address="Tula",year = 1788))
 
     self.return_to_home_page(wd)
     self.logout(wd)
