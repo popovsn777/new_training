@@ -1,6 +1,5 @@
 __author__ = 'Elmira'
 
-
 class MemberHelper:
 
     def __init__(self, app):
