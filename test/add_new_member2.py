@@ -9,15 +9,12 @@ def app(request):
     request.addfinalizer(fixture.destroy)
     return fixture
 
-
-
-    
 def test_add_new_member2(app):
     app.session.login( username="admin", password="secret")
-    app.add_new_user(wd, Member(firstname="Sergey", lastname="Zatula", address="Tula",year = 1788))
+    app.add_new_user(Member(firstname="Sergey", lastname="Zatula", address="Tula",year = 1788))
 
     self.return_to_home_page(wd)
-    self.logout(wd)
+    app.session.logout()
 
 def test_add_new_member3(self):
     wd = self.wd
