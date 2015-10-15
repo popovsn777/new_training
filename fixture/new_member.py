@@ -9,6 +9,9 @@ class MemberHelper:
     def add_new_user(self, member):
         # add new user
         wd = self.app.wd
+        ### добавил переход на страницу добавления
+        wd.find_element_by_link_text("add new").click()
+
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys(member.firstname)
