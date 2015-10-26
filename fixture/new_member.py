@@ -57,3 +57,13 @@ class MemberHelper:
         wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
 
 
+    def delete_first_record(self):
+
+        wd = self.app.wd
+
+
+        wd.find_element_by_css_selector("input[type=\"submit\"]").click()
+        if not wd.find_element_by_id("8").is_selected():
+            wd.find_element_by_id("8").click()
+        wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
+        wd.find_element_by_link_text("home").click()

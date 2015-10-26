@@ -1,8 +1,12 @@
+__author__ = 'popov.sn'
+
+
 from selenium.webdriver.firefox.webdriver import WebDriver
 from fixture.session import SessionHelper
 from fixture.group import GroupHelper
 from fixture.new_member import MemberHelper
-__author__ = 'Elmira'
+
+
 
 class Application:
 
@@ -17,8 +21,8 @@ class Application:
 
     def open_home_page(self):
         wd = self.wd
-#        wd.get("http://localhost/addressbook/addressbook/")
-        wd.get("http://localhost/addressbook/")
+        wd.get("http://localhost/addressbook/addressbook/")
+#        wd.get("http://localhost/addressbook/")
 
 
 
