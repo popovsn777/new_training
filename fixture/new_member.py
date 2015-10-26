@@ -63,7 +63,19 @@ class MemberHelper:
 
 
         wd.find_element_by_css_selector("input[type=\"submit\"]").click()
-        if not wd.find_element_by_id("8").is_selected():
-            wd.find_element_by_id("8").click()
+        if not wd.find_element_by_id("16").is_selected():
+            wd.find_element_by_id("16").click()
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         wd.find_element_by_link_text("home").click()
+
+
+    def delete_all_records(self):
+        wd = self.app.wd
+
+
+#        wd.find_element_by_css_selector("input[type=\"submit\"]").click()
+        wd.find_element_by_link_text("home").click()
+        if not wd.find_element_by_id("MassCB").is_selected():
+            wd.find_element_by_id("MassCB").click()
+        wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
+        wd.find_element_by_xpath("//div/div[3]/ul/li[1]/a").click()
