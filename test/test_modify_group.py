@@ -4,10 +4,10 @@ from model.group import Group
 
 
 def test_midify_group_name(app):
-    app.group.modify( Group(name="New group", header="group_header5", footer="group_footer5"))
+    app.group.modify_first_group( Group(name="New group ppppp"))
 
 
 
-def test_midify_group_name(app):
-    app.group.modify( Group(name="New group", header="group_header5", footer="group_footer5"))
+def test_midify_group_header(app):
+    app.group.modify_first_group( Group(header="New header rrrrrrrrrr"))
 
