@@ -58,15 +58,13 @@ class MemberHelper:
 
 
     def delete_first_record(self):
-
         wd = self.app.wd
+        self.select_first_address()
+        wd.find_element_by_css_selector("form[name='MainForm'] input[value='Delete']").click()
 
-
-        wd.find_element_by_css_selector("input[type=\"submit\"]").click()
-        if not wd.find_element_by_id("16").is_selected():
-            wd.find_element_by_id("16").click()
-        wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
-        wd.find_element_by_link_text("home").click()
+    def select_first_address(self):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//form[@name='MainForm']/table[@id='maintable']//input[@name='selected[]']").click()
 
 
     def delete_all_records(self):
