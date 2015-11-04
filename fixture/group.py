@@ -7,25 +7,34 @@ class GroupHelper:
         self.app = app
 
     def open_group_page(self):
+        print("DEBUG open_group_page1")
         wd = self.app.wd
         wd.find_element_by_link_text("groups").click()
+        print("DEBUG open_group_page 2")
 
     def create(self, group):
+        print("create 3")
         wd = self.app.wd
         self.open_group_page()
         wd.find_element_by_name("new").click()
+        print("create 4")
         self.fill_group_form(group)
         # submit group creation
         wd.find_element_by_css_selector("#content > form").click()
         wd.find_element_by_name("submit").click()
         self.return_to_group()
+        print("create 5")
 
     def fill_group_form(self, group):
+        print("fill_group_form 7")
         # fill group form
         wd = self.app.wd
         self.change_field_value("group_name", group.name)
+        print("fill_group_form 8")
         self.change_field_value("group_header", group.header)
-        self.change_field_value("group.footer", group.footer)
+        print("fill_group_form 9")
+        self.change_field_value("group_footer", group.footer)
+        print("fill_group_form 10")
 
 
 
