@@ -3,6 +3,8 @@ __author__ = 'popov.sn'
 
 import pytest
 import jsonpickle
+import json
+import os.path
 from fixture.application import Application
 from fixture.dp import DbFixture
 
@@ -22,6 +24,7 @@ def load_config(file):
 def app(request):
     global fixture
     browser = request.config.getoption("--browser")
+
     base_url = request.config.getoption("--baseUrl")
     if fixture is None:
         fixture = Application(browser=browser, base_url=base_url)
